@@ -1,0 +1,123 @@
+{
+  "common": {
+    "upload": "Upload Photo",
+    "takePhoto": "Take Photo",
+    "processing": "Analyzing your face...",
+    "error": "Something went wrong",
+    "retry": "Try Again",
+    "save": "Save",
+    "cancel": "Cancel",
+    "skip": "Skip",
+    "continue": "Continue",
+    "back": "Back"
+  },
+  "landing": {
+    "title": "Find Your Perfect Hairstyle",
+    "subtitle": "Upload a photo and get personalized hairstyle recommendations in seconds — all on your device, completely private.",
+    "uploadCta": "Upload a Photo",
+    "cameraCta": "Take a Selfie",
+    "privacyNote": "Your photos never leave your device."
+  },
+  "camera": {
+    "captureButton": "Take Photo",
+    "retakeButton": "Retake",
+    "switchCamera": "Switch Camera",
+    "permissionDenied": "Camera access was denied. Please allow camera access in your browser settings, or upload a photo instead.",
+    "notAvailable": "Camera is not available on this device. Please upload a photo instead."
+  },
+  "validation": {
+    "title": "Let's try again",
+    "NO_FACE": "We couldn't detect a face in your photo. Please try again with a clear, front-facing photo.",
+    "MULTIPLE_FACES": "We detected more than one face. Please upload a photo with just you in it.",
+    "FACE_TOO_SMALL": "Your face is too small in the photo. Try a closer-up selfie or crop the photo to focus on your face.",
+    "NOT_FRONTAL": "Please face the camera directly for the best results. Avoid turning your head to the side.",
+    "retakeCta": "Retake Photo",
+    "tips": {
+      "title": "Tips for a great photo:",
+      "tip1": "Face the camera directly",
+      "tip2": "Ensure good, even lighting",
+      "tip3": "Keep your hair away from your face",
+      "tip4": "Use a neutral expression",
+      "tip5": "Fill the frame with your face"
+    }
+  },
+  "processing": {
+    "step1": "Detecting your face...",
+    "step2": "Mapping facial features...",
+    "step3": "Extracting face geometry...",
+    "step4": "Classifying face shape...",
+    "slow": "This is taking longer than usual..."
+  },
+  "results": {
+    "title": "Your Recommended Styles",
+    "subtitle": "Based on your {{shape}} face shape",
+    "previewCta": "Preview on me",
+    "tryDifferent": "Try a different photo",
+    "confidence": "confidence",
+    "classifier": "Classifier",
+    "inferenceTime": "Inference",
+    "nextStepHint": "Hairstyle recommendations coming in Bucket 3!",
+    "bestMatch": "Best Match",
+    "matchScore": "{{score}}% match",
+    "saveCta": "Save Preview",
+    "saveSuccess": "Saved!",
+    "previewUnavailable": "Preview unavailable",
+    "previewCta": "Preview on me"
+  },
+  "inputForm": {
+    "title": "Tell us more about you",
+    "subtitle": "Help us personalize your recommendations",
+    "hairType": {
+      "label": "What's your hair type?",
+      "straight": "Straight",
+      "wavy": "Wavy",
+      "curly": "Curly",
+      "coily": "Coily"
+    },
+    "occasion": {
+      "label": "What's the occasion?",
+      "everyday": "Everyday",
+      "professional": "Professional",
+      "formal": "Formal Event"
+    },
+    "genderPresentation": {
+      "label": "Style preference",
+      "masculine": "Masculine",
+      "feminine": "Feminine",
+      "androgynous": "Androgynous"
+    },
+    "showStyles": "Show My Styles"
+  },
+  "shapes": {
+    "oval": "Oval",
+    "round": "Round",
+    "square": "Square",
+    "heart": "Heart",
+    "oblong": "Oblong",
+    "description": {
+      "oval": "Your face is gently rounded with a slightly narrower forehead and jaw. The oval shape is considered the most versatile for hairstyles.",
+      "round": "Your face has a similar width and length with soft, rounded features. Styles that add height and angles work beautifully.",
+      "square": "Your face has a strong, angular jawline with a forehead and jaw of similar width. Bold, structured styles complement your features.",
+      "heart": "Your forehead is wider than your jaw, tapering to a narrower chin. Styles that add width at the jaw level balance your proportions.",
+      "oblong": "Your face is longer than it is wide with a narrow profile. Styles that add width and volume at the sides create a balanced look."
+    }
+  },
+  "faceShapes": {
+    "oval": "Oval",
+    "round": "Round",
+    "square": "Square",
+    "heart": "Heart",
+    "oblong": "Oblong"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "modelLoadFailed": "We couldn't load the face detection model. Please check your connection and try again.",
+    "goHome": "Go Home"
+  },
+  "preview": {
+    "title": "Style Preview",
+    "opacity": "Hair opacity",
+    "close": "Close",
+    "save": "Save photo"
+  }
+}
