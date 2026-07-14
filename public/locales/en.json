@@ -119,5 +119,24 @@
     "opacity": "Hair opacity",
     "close": "Close",
     "save": "Save photo"
+  },
+  "booking": {
+    "title": "Book Appointment",
+    "bookCta": "Book this style",
+    "selectStylist": "1. Select a Stylist",
+    "selectTime": "2. Select a Date & Time",
+    "enterDetails": "3. Your Details",
+    "confirmation": "Booking Confirmed!",
+    "reviews": "reviews",
+    "specialties": "Specialties",
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "notes": "Any special requests? (Optional)",
+    "submit": "Confirm Booking",
+    "successMessage": "Your appointment is confirmed. Your confirmation number is:",
+    "returnHome": "Return to Start",
+    "back": "Back",
+    "processing": "Confirming...",
+    "errorFields": "Please fill out your name and phone number."
   }
 }

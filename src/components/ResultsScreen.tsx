@@ -23,9 +23,9 @@ interface ResultsScreenProps {
   photoSrc: string;
   photoWidth: number;
   photoHeight: number;
-  /** 468 landmarks — needed for preview overlay anchor. */
   landmarks: NormalizedLandmark[];
   onReset: () => void;
+  onBookStyle: (styleId: string) => void;
 }
 
 // ---------------------------------------------------------------------------
@@ -40,6 +40,7 @@ export function ResultsScreen({
   photoHeight,
   landmarks,
   onReset,
+  onBookStyle,
 }: ResultsScreenProps) {
   const { t } = useTranslation();
   const [previewIndex, setPreviewIndex] = useState<number | null>(null);
@@ -70,6 +71,7 @@ export function ResultsScreen({
               recommendation={rec}
               rank={index + 1}
               onPreview={() => setPreviewIndex(index)}
+              onBookStyle={() => onBookStyle(rec.style.id)}
             />
           ))}
         </div>
@@ -92,6 +94,7 @@ export function ResultsScreen({
           recommendations={recommendations}
           initialIndex={previewIndex}
           onClose={() => setPreviewIndex(null)}
+          onBookStyle={onBookStyle}
         />
       )}
     </>
@@ -106,9 +109,10 @@ interface StyleCardProps {
   recommendation: ScoredRecommendation;
   rank: number;
   onPreview: () => void;
+  onBookStyle: () => void;
 }
 
-function StyleCard({ recommendation, rank, onPreview }: StyleCardProps) {
+function StyleCard({ recommendation, rank, onPreview, onBookStyle }: StyleCardProps) {
   const { style, score, rationale } = recommendation;
   const { t } = useTranslation();
   const hasImage = Boolean(style.imagePath);
@@ -169,6 +173,14 @@ function StyleCard({ recommendation, rank, onPreview }: StyleCardProps) {
         </div>
 
         <p className="style-card-rationale">{rationale}</p>
+        
+        <button 
+          className="btn btn-primary style-card-book-btn" 
+          onClick={onBookStyle}
+          style={{ width: '100%', marginTop: '16px' }}
+        >
+          {t('booking.bookCta')}
+        </button>
       </div>
     </article>
   );

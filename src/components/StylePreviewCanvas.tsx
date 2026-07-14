@@ -42,6 +42,8 @@ interface StylePreviewCanvasProps {
   initialIndex?: number;
   /** Called when user closes the modal. */
   onClose: () => void;
+  /** Called when user clicks "Book this style" */
+  onBookStyle: (styleId: string) => void;
 }
 
 // ---------------------------------------------------------------------------
@@ -56,6 +58,7 @@ export function StylePreviewCanvas({
   recommendations,
   initialIndex = 0,
   onClose,
+  onBookStyle,
 }: StylePreviewCanvasProps) {
   const { t } = useTranslation();
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -310,13 +313,20 @@ export function StylePreviewCanvas({
           </div>
 
           {/* Action buttons */}
-          <div className="preview-actions">
+          <div className="preview-actions" style={{ display: 'flex', gap: '8px' }}>
             <button
               id="btn-save-preview"
-              className="btn btn-primary"
+              className="btn btn-secondary"
               onClick={handleSave}
             >
               {saveLabel ?? `⬇ ${t('results.saveCta')}`}
+            </button>
+            <button
+              id="btn-book-style"
+              className="btn btn-primary"
+              onClick={() => onBookStyle(currentStyle?.id ?? '')}
+            >
+              📅 {t('booking.bookCta')}
             </button>
           </div>
         </div>

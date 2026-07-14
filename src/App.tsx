@@ -18,6 +18,7 @@ import { LandmarkOverlay } from './components/debug/LandmarkOverlay';
 import { ShapeConfidenceChart } from './components/debug/ShapeConfidenceChart';
 import { PreferenceForm } from './components/PreferenceForm';
 import { ResultsScreen } from './components/ResultsScreen';
+import { BookingScreen } from './components/booking/BookingScreen';
 import type { FaceDetectionResult } from './core/face-detection';
 import type { ValidationResult } from './core/photo-validation';
 import type { ClassificationResult } from './core/classifier';
@@ -34,6 +35,7 @@ type AppStep =
   | 'invalid-photo'  // Validation failure
   | 'preferences'    // Show preference form
   | 'results'        // Show style recommendations
+  | 'booking'        // Show booking flow
   | 'error';         // Fatal error
 
 export function App() {
@@ -49,6 +51,7 @@ export function App() {
   const [classificationResult, setClassificationResult] = useState<ClassificationResult | null>(null);
   const [recommendations, setRecommendations] = useState<ScoredRecommendation[]>([]);
   const [processingStep, setProcessingStep] = useState<string>('');
+  const [bookingStyleId, setBookingStyleId] = useState<string | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -150,6 +153,7 @@ export function App() {
   );
 
   const handleReset = useCallback(() => {
+    stopCamera();
     setStep('idle');
     setPhotoSrc(null);
     setPhotoDimensions(null);
@@ -157,7 +161,9 @@ export function App() {
     setValidationResult(null);
     setClassificationResult(null);
     setRecommendations([]);
-  }, []);
+    setProcessingStep('');
+    setBookingStyleId(null);
+  }, [stopCamera]);
 
   // ---------------------------------------------------------------------------
   // Render
@@ -323,6 +329,23 @@ export function App() {
             photoHeight={photoDimensions.height}
             landmarks={detectionResults[0].landmarks}
             onReset={handleReset}
+            onBookStyle={(styleId) => {
+              setBookingStyleId(styleId);
+              setStep('booking');
+            }}
+          />
+        )}
+
+        {/* ── BOOKING ── */}
+        {step === 'booking' && bookingStyleId && (
+          <BookingScreen 
+            styleId={bookingStyleId}
+            styleName={recommendations.find(r => r.style.id === bookingStyleId)?.style.name || ''}
+            onClose={() => {
+              setBookingStyleId(null);
+              setStep('results');
+            }}
+            onHome={handleReset}
           />
         )}
 
